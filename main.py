@@ -9,10 +9,13 @@ class Game:
         self.clock = pygame.time.Clock()
         self.font = pygame.font.Font('C:\\WINDOWS\\FONTS\\ARIAL.TTF',32)
         self.running = True
-    
+
+        self.character_spritesheet = Spritesheet('img/character.png')
+        self.terrain_spritesheet = Spritesheet('img/terrain.png')
     def createTilemap(self):
         for i, row in enumerate(tilemap):
             for j, column in enumerate(row):
+                Ground(self,j,i)
                 if column == 'B':
                     Block(self,j,i)
                 if column == 'P':
